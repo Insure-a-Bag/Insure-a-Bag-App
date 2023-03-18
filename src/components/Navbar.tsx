@@ -45,7 +45,7 @@ export default function Navbar() {
 							<Link href="/">My NFTs</Link>
 						</Typography>
 						<Typography variant="h6" color="black" sx={{ marginX: "2rem" }}>
-							<Link href="/">Your Policies</Link>
+							<Link href="/myPolicy">Your Policies</Link>
 						</Typography>
 					</Box>
 					<ConnectButton />

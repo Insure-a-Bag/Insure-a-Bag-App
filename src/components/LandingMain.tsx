@@ -4,7 +4,7 @@ import { theme } from "./theme"
 export default function LandingMain() {
 	return (
 		<Box
-			component="p"
+			component="h1"
 			sx={{ backgroundColor: "white", display: "block", height: "50rem" }}
 		>
 			<Container sx={{ p: "15rem" }}>
