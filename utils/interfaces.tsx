@@ -3,5 +3,6 @@ export interface PolicyNFTCardInterface {
     imagePath: string,
     expiryDate: string,
     address: string,
-    premiumAmount: number
+    premiumAmount: number,
+    policyAddress: string
 }

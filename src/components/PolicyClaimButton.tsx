@@ -16,7 +16,7 @@ const style = {
 	p: 4,
 }
 
-export default function PolicyDetailsButton(props: PolicyNFTCardInterface) {
+export default function PolicyClaimButton(props: PolicyNFTCardInterface) {
 	const [open, setOpen] = useState<boolean>(false)
 	const handleOpen = () => setOpen(true)
 	const handleClose = () => setOpen(false)
@@ -24,14 +24,15 @@ export default function PolicyDetailsButton(props: PolicyNFTCardInterface) {
 		<>
 			<Button
 				sx={{
-					backgroundColor: theme.palette.secondary.main,
+					backgroundColor: theme.palette.primary.main,
 					p: "0.5rem",
+					mr: "2rem",
 					color: "black",
 					borderRadius: 2,
 				}}
-				onClick={handleOpen}
+                onClick={handleOpen}
 			>
-				See Details
+				Apply for Claim
 			</Button>
 			<Modal
 				open={open}
@@ -40,16 +41,6 @@ export default function PolicyDetailsButton(props: PolicyNFTCardInterface) {
 				aria-describedby="modal-modal-description"
 			>
 				<Box sx={style}>
-					<Container
-						sx={{
-							position: "relative",
-							width: "20rem",
-							height: "20rem",
-							my: "2rem",
-						}}
-					>
-						<Image src={props.imagePath} fill alt="Image of NFT insured" />
-					</Container>
 					<Box>
 						<Typography variant="h4" component="h2" color="black">
 							Policy ID: {props.policyId}
@@ -62,18 +53,10 @@ export default function PolicyDetailsButton(props: PolicyNFTCardInterface) {
 								  props.address.slice(-7, -1)
 								: props.address}
 						</Typography>
-                        <Typography variant="h5" sx={{ mt: 2 }} color="black">
-							Policy Address:{" "}
-							{props.policyAddress.length > 20
-								? props.policyAddress.slice(0, 7) +
-								  "..." +
-								  props.policyAddress.slice(-7, -1)
-								: props.policyAddress}
-						</Typography>
 						<Typography variant="h5" sx={{ mt: 2 }} color="black">
 							Expiry Date: {props.expiryDate}
 						</Typography>
-                        <Typography variant="h5" sx={{ mt: 2 }} color="black">
+						<Typography variant="h5" sx={{ mt: 2 }} color="black">
 							Premium Amount: {props.premiumAmount}
 						</Typography>
 						<Button
@@ -85,7 +68,7 @@ export default function PolicyDetailsButton(props: PolicyNFTCardInterface) {
 								mt: "2rem",
 							}}
 						>
-							Pay Premium
+							Claim
 						</Button>
 					</Box>
 				</Box>

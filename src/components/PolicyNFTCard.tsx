@@ -4,6 +4,7 @@ import Image from "next/image"
 import { theme } from "./theme"
 import { PolicyNFTCardInterface } from "../../utils/interfaces"
 import PolicyDetailsButton from "./PolicyDetailsButton"
+import PolicyClaimButton from "./PolicyClaimButton"
 // import {} from "../../public/fanstasyWorldAI1.png"
 export default function PolicyNFTCard(props: PolicyNFTCardInterface) {
 	const address: string = props.address
@@ -45,23 +46,21 @@ export default function PolicyNFTCard(props: PolicyNFTCardInterface) {
 			<Typography variant="h6" my="1rem">
 				Expires on- {expiryDate}
 			</Typography>
-			<Button
-				sx={{
-					backgroundColor: theme.palette.primary.main,
-					p: "0.5rem",
-					mr: "2rem",
-					color: "black",
-					borderRadius: 2,
-				}}
-			>
-				Apply for Claim
-			</Button>
+			<PolicyClaimButton
+				policyId={props.policyId}
+				expiryDate={props.expiryDate}
+				imagePath={props.imagePath}
+				address={props.address}
+				premiumAmount={props.premiumAmount}
+				policyAddress={props.policyAddress}
+			/>
 			<PolicyDetailsButton
 				policyId={props.policyId}
 				expiryDate={props.expiryDate}
 				imagePath={props.imagePath}
 				address={props.address}
 				premiumAmount={props.premiumAmount}
+				policyAddress={props.policyAddress}
 			/>
 		</Box>
 	)

@@ -24,6 +24,7 @@ export default function PolicyBody() {
 							imagePath={policy.imagePath}
 							address={policy.address}
 							premiumAmount={policy.premiumAmount}
+							policyAddress={policy.policyAddress}
 						/>
 					))}
 				</Box>
