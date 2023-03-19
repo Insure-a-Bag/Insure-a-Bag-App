@@ -1,6 +1,7 @@
 import "@/styles/globals.css"
 import type { AppProps } from "next/app"
 import "@rainbow-me/rainbowkit/styles.css"
+import merge from 'lodash.merge';
 import {
 	getDefaultWallets,
 	RainbowKitProvider,
@@ -38,7 +39,16 @@ const wagmiClient = createClient({
 	provider,
 })
 
-
+const myTheme = merge(lightTheme(), {
+	colors: {
+		accentColor:theme.palette.secondary.main,
+		accentColorForeground:"black",
+		// modalBackground: theme.palette.primary.main
+		menuItemBackground: theme.palette.primary.main,
+		connectButtonBackground: theme.palette.secondary.main,
+		
+	},
+  } as Theme);
 
 export default function App({ Component, pageProps }: AppProps) {
 	return (
@@ -46,10 +56,7 @@ export default function App({ Component, pageProps }: AppProps) {
 			<WagmiConfig client={wagmiClient}>
 				<RainbowKitProvider
 					chains={chains}
-					theme={lightTheme({
-            accentColor:theme.palette.secondary.main,
-            accentColorForeground:"black"
-          })}
+					theme={myTheme}
 				>
 					<Component {...pageProps} />
 				</RainbowKitProvider>

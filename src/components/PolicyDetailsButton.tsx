@@ -40,6 +40,9 @@ export default function PolicyDetailsButton(props: PolicyNFTCardInterface) {
 				aria-describedby="modal-modal-description"
 			>
 				<Box sx={style}>
+					<Typography variant="h4" component="h2" color="black">
+						Policy ID: {props.policyId}
+					</Typography>
 					<Container
 						sx={{
 							position: "relative",
@@ -48,12 +51,9 @@ export default function PolicyDetailsButton(props: PolicyNFTCardInterface) {
 							my: "2rem",
 						}}
 					>
-						<Image src={props.imagePath} fill alt="Image of NFT insured" />
+						<Image src={props.imagePath} style={{borderRadius:10}} fill alt="Image of NFT insured" />
 					</Container>
 					<Box>
-						<Typography variant="h4" component="h2" color="black">
-							Policy ID: {props.policyId}
-						</Typography>
 						<Typography variant="h5" sx={{ mt: 2 }} color="black">
 							Insurer:{" "}
 							{props.address.length > 20
@@ -62,7 +62,7 @@ export default function PolicyDetailsButton(props: PolicyNFTCardInterface) {
 								  props.address.slice(-7, -1)
 								: props.address}
 						</Typography>
-                        <Typography variant="h5" sx={{ mt: 2 }} color="black">
+						<Typography variant="h5" sx={{ mt: 2 }} color="black">
 							Policy Address:{" "}
 							{props.policyAddress.length > 20
 								? props.policyAddress.slice(0, 7) +
@@ -73,8 +73,8 @@ export default function PolicyDetailsButton(props: PolicyNFTCardInterface) {
 						<Typography variant="h5" sx={{ mt: 2 }} color="black">
 							Expiry Date: {props.expiryDate}
 						</Typography>
-                        <Typography variant="h5" sx={{ mt: 2 }} color="black">
-							Premium Amount: {props.premiumAmount}
+						<Typography variant="h5" sx={{ mt: 2 }} color="black">
+							Premium Amount: {props.premiumAmount} ETH
 						</Typography>
 						<Button
 							sx={{
