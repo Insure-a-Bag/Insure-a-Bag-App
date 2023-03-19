@@ -1,7 +1,9 @@
 import { Box, Container, Typography } from "@mui/material"
 import PolicyNFTCard from "./PolicyNFTCard"
 import { policies } from "../../utils/mockPolicies"
+import PushSupportChat from "./PushSupportChat"
 export default function PolicyBody() {
+	
 	return (
 		<Box component="h1" sx={{ backgroundColor: "white", color: "black" }}>
 			<Container sx={{ py: "5rem" }}>
@@ -29,6 +31,7 @@ export default function PolicyBody() {
 					))}
 				</Box>
 			</Container>
+			<PushSupportChat/>
 		</Box>
 	)
 }
