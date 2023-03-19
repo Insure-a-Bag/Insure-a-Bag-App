@@ -3,6 +3,7 @@ import { Box, Button, Container, Typography } from "@mui/material"
 import Image from "next/image"
 import { theme } from "./theme"
 import { PolicyNFTCardInterface } from "../../utils/interfaces"
+import PolicyDetailsButton from "./PolicyDetailsButton"
 // import {} from "../../public/fanstasyWorldAI1.png"
 export default function PolicyNFTCard(props: PolicyNFTCardInterface) {
 	const address: string = props.address
@@ -17,7 +18,7 @@ export default function PolicyNFTCard(props: PolicyNFTCardInterface) {
 				p: "2rem",
 				borderRadius: 5,
 				position: "relative",
-				backgroundColor: theme.palette.info.main,
+				backgroundColor: theme.palette.success.main,
 			}}
 		>
 			<Typography variant="h4">Policy ID: {props.policyId}</Typography>
@@ -46,13 +47,22 @@ export default function PolicyNFTCard(props: PolicyNFTCardInterface) {
 			</Typography>
 			<Button
 				sx={{
-					backgroundColor: theme.palette.secondary.main,
+					backgroundColor: theme.palette.primary.main,
 					p: "0.5rem",
+					mr: "2rem",
 					color: "black",
+					borderRadius: 2,
 				}}
 			>
-				View Details
+				Apply for Claim
 			</Button>
+			<PolicyDetailsButton
+				policyId={props.policyId}
+				expiryDate={props.expiryDate}
+				imagePath={props.imagePath}
+				address={props.address}
+				premiumAmount={props.premiumAmount}
+			/>
 		</Box>
 	)
 }
