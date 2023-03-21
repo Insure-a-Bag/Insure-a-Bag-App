@@ -73,7 +73,7 @@ let nfts = [
     },
 ];
 
-export default function NFTCollection(props: any) {
+export default function NFTCollection() {
   return (
     <Grid
       container
@@ -81,7 +81,7 @@ export default function NFTCollection(props: any) {
       justifyContent="center"
       style={{ padding: "200px" }}
     >
-      {props.cards.map((card: any) => (
+      {nfts.map((card: any) => (
         <Grid key={card.title} item xs={12} sm={6} md={4} lg={3}>
           <NFTCard title={card.title} price={card.price} image={card.image} />
         </Grid>
