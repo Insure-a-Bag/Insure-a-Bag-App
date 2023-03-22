@@ -36,10 +36,10 @@ export default function Navbar() {
 							<Link href="/">Home</Link>
 						</Typography>
 						<Typography variant="h6" color="#FAFFFF" sx={{ marginX: "2rem" }}>
-							<Link href="/myNFT">My NFTs</Link>
+							<Link href="/nft">NFTs</Link>
 						</Typography>
 						<Typography variant="h6" color="#FAFFFF" sx={{ marginX: "2rem" }}>
-							<Link href="/myPolicy">Your Policies</Link>
+							<Link href="/policy">Policies</Link>
 						</Typography>
 					</Box>
 					<ConnectButton />
