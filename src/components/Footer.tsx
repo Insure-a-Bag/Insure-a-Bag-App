@@ -103,19 +103,8 @@ import {
                 INSURE-A-BAG
               </Typography>
             </Box>
-            <Box sx={{ display: "flex", justifyContent: "center" }}>
-              <Typography variant="h6" color="#FAFFFF" sx={{ marginX: "2rem" }}>
-                <Link href="/">Home</Link>
-              </Typography>
-              <Typography variant="h6" color="#FAFFFF" sx={{ marginX: "2rem" }}>
-                <Link href="/myNFT">My NFTs</Link>
-              </Typography>
-              <Typography variant="h6" color="#FAFFFF" sx={{ marginX: "2rem" }}>
-                <Link href="/myPolicy">Your Policies</Link>
-              </Typography>
-            </Box>
             <Typography variant="subtitle1" color="#FAFFFF">
-                © 2023 All rights reserved
+                © 2023, All rights reserved
             </Typography>
           </StyledToolbar>
         </AppBar>
