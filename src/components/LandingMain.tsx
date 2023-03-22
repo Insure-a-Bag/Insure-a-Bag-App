@@ -1,4 +1,4 @@
-import { Box, Button, Container, Typography } from "@mui/material"
+import { Box, Button, Container, Typography, Link } from "@mui/material"
 import { theme } from "./theme"
 
 export default function LandingMain() {
@@ -17,7 +17,7 @@ export default function LandingMain() {
 				<Container sx={{textAlign:"center", mt:"3rem"}}>
 					<Button sx={{backgroundColor:theme.palette.success.main, p:"1.5rem", borderRadius:5, fontWeight:500}}>
 						<Typography color="black" variant="h5">
-							Click to Insure
+							<Link href="/myNFT">Click to Insure</Link>
 						</Typography>
 					</Button>
 				</Container>

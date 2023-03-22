@@ -16,6 +16,7 @@
     "@fortawesome/react-fontawesome": "0.2.0",
     "@mui/icons-material": "^5.11.11",
     "@mui/material": "^5.11.12",
+    "@mui/styles": "^5.11.13",
     "@pushprotocol/restapi": "^0.8.2",
     "@pushprotocol/socket": "^0.4.1",
     "@pushprotocol/uiweb": "^0.5.0",
