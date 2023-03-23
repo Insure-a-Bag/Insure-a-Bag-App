@@ -3,7 +3,6 @@ import PolicyNFTCard from "./PolicyNFTCard"
 import { policies } from "../../utils/mockPolicies"
 import PushSupportChat from "./PushSupportChat"
 export default function PolicyBody() {
-	
 	return (
 		<Box component="h1" sx={{ backgroundColor: "white", color: "black" }}>
 			<Container sx={{ py: "5rem" }}>
