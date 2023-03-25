@@ -1,13 +1,13 @@
 import * as React from 'react';
 import { Box, Grid, Typography } from '@mui/material'
 import Image from 'next/image'
-import mission from '../images/mission.png'
-import vision from '../images/vision.png'
-import future from '../images/future.png'
+import mission from '../assets/mission.png'
+import vision from '../assets/vision.png'
+import future from '../assets/future.png'
 
 const Mission = () => {
   return (
-    <Box sx={{ flexGrow: 1, mt: "100px", mb: "100px" }}>
+    <Box sx={{ flexGrow: 1, mt: "10px", mb: "100px" }}>
       <Grid container spacing={2}>
         <Grid item xs={6} md={8} text-items='left'>
             <Typography color="black" variant="h3" className='grid-elements' sx={{ ml: "200px"}}>
@@ -33,7 +33,7 @@ const Mission = () => {
             <Image 
                 src={vision}
                 alt="vision"
-                width={200}
+                width={250}
                 height={150}
                 style={{ float: "right", marginRight: "25px", marginTop: "25px" }}
             />
