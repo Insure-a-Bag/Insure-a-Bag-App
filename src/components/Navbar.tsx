@@ -1,14 +1,11 @@
-import { SafetyCheck } from "@mui/icons-material"
 import {
 	AppBar,
 	Box,
-	Container,
-	// Link,
 	Toolbar,
 	Typography,
 	styled,
 } from "@mui/material"
-import { ConnectButton } from "@rainbow-me/rainbowkit"
+import { ConnectButton } from '@rainbow-me/rainbowkit';
 import Link from "next/link"
 import { theme } from "./theme"
 
@@ -25,27 +22,24 @@ export default function Navbar() {
 				sx={{
 					backgroundColor: theme.palette.primary.main,
 					// height:"5rem"
-					p: "1rem",
+					p: "1rem"
 				}}
 			>
 				<StyledToolbar>
 					<Box display="flex">
-						<SafetyCheck
-							sx={{ marginRight: "1.5rem", color: "black", fontSize: 40 }}
-						/>
-						<Typography variant="h6" color="black">
+						<Typography variant="h6" color="#FAFFFF">
 							INSURE-A-BAG
 						</Typography>
 					</Box>
 					<Box sx={{ display: "flex" }}>
-						<Typography variant="h6" color="black" sx={{ marginX: "2rem" }}>
+						<Typography variant="h6" color="#FAFFFF" sx={{ marginX: "2rem" }}>
 							<Link href="/">Home</Link>
 						</Typography>
-						<Typography variant="h6" color="black" sx={{ marginX: "2rem" }}>
-							<Link href="/">My NFTs</Link>
+						<Typography variant="h6" color="#FAFFFF" sx={{ marginX: "2rem" }}>
+							<Link href="/nft">NFTs</Link>
 						</Typography>
-						<Typography variant="h6" color="black" sx={{ marginX: "2rem" }}>
-							<Link href="/myPolicy">Your Policies</Link>
+						<Typography variant="h6" color="#FAFFFF" sx={{ marginX: "2rem" }}>
+							<Link href="/policy">Policies</Link>
 						</Typography>
 					</Box>
 					<ConnectButton />

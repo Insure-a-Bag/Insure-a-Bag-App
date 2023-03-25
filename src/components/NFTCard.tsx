@@ -63,7 +63,23 @@ export default function NFTCard(props: any) {
     );
   }
 
-  const cost = (months * (price * 0.004)).toFixed(4); // calculate the cost based on months and price
+  function getCost(months: number): number {
+    let usedRate: number;
+    const maxRate = 0.01;
+    if (months >= 6 && months < 12) {
+      usedRate = maxRate * 0.7;
+    } else if (months >= 12 && months < 18) {
+      usedRate = maxRate * 0.5;
+    } else if (months >= 18) {
+      usedRate = maxRate * 0.3;
+    } else {
+      usedRate = maxRate;
+    }
+    return usedRate;
+  }
+
+  const cost = (months * getCost(months)).toFixed(4);
+  // const cost = (months * (price * 0.004)).toFixed(4); // calculate the cost based on months and price
   const termsAndConditions = `
     Terms and Conditions:
 
