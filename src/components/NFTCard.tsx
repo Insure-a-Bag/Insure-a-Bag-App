@@ -87,6 +87,10 @@ export default function NFTCard(props: any) {
     2. The insurer is not responsible for any loss or damage to the insured NFT.
     3. The insured NFT must remain in the possession of the policy holder for the duration of the insurance period.
     4. The insurer reserves the right to modify the terms and conditions of this insurance policy at any time.
+
+    By clicking 'Finish', you acknowledge that you have read, understood, and agree to be bound by the Terms and Conditions of Insure-a-bag. 
+    You confirm that you are entering into this insurance policy with full knowledge of the associated risks, and accept all terms pertaining to coverage, claims, 
+    and policy administration as outlined in the Insure-a-bag Terms and Conditions.
   `;
 
   return (
