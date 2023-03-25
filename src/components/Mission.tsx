@@ -7,16 +7,16 @@ import future from '../assets/future.png'
 
 const Mission = () => {
   return (
-    <Box sx={{ flexGrow: 1, mt: "10px", mb: "100px" }}>
+    <Box sx={{ flexGrow: 1, mt: "100px", mb: "100px" }}>
       <Grid container spacing={2}>
         <Grid item xs={6} md={8} text-items='left'>
-            <Typography color="black" variant="h3" className='grid-elements' sx={{ ml: "200px"}}>
+            <Typography color="black" variant="h3" className='grid-elements' sx={{ ml: "200px" }}>
                 <strong>Mission Statement</strong>
             </Typography>
             <Typography color="black" variant="body1" sx={{ ml: "200px"}}>
                 Our mission at Insure-a-bag is to empower the digital asset community by providing a decentralized, 
-                secure, and user-friendly NFT insurance solution that fosters trust, protection, and growth in the NFT ecosystem, 
-                enabling creators, collectors, and investors to confidently engage with and preserve the value of their digital assets.
+                secure, and user-friendly NFT insurance solution that fosters trust, protection, and growth in the NFT ecosystem. This will 
+                enable creators, collectors, and investors to confidently engage with and preserve the value of their digital assets.
             </Typography>
         </Grid>
         <Grid item xs={6} md={4}>
@@ -31,7 +31,7 @@ const Mission = () => {
             <Image 
                 src={vision}
                 alt="vision"
-                width={250}
+                width={225}
                 height={150}
                 style={{ float: "right", marginRight: "25px", marginTop: "25px" }}
             />
