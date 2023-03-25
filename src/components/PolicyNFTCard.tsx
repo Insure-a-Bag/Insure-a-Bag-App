@@ -1,11 +1,10 @@
 import { SafetyCheck } from "@mui/icons-material"
-import { Box, Button, Container, Typography } from "@mui/material"
+import { Box, Typography } from "@mui/material"
 import Image from "next/image"
-import { theme } from "./theme"
 import { PolicyNFTCardInterface } from "../../utils/interfaces"
 import PolicyDetailsButton from "./PolicyDetailsButton"
 import PolicyClaimButton from "./PolicyClaimButton"
-// import {} from "../../public/fanstasyWorldAI1.png"
+
 export default function PolicyNFTCard(props: PolicyNFTCardInterface) {
 	const address: string = props.address
 	const expiryDate: string = props.expiryDate
@@ -19,10 +18,11 @@ export default function PolicyNFTCard(props: PolicyNFTCardInterface) {
 				p: "2rem",
 				borderRadius: 5,
 				position: "relative",
-				backgroundColor: theme.palette.success.main,
+				backgroundColor: "#0D1A2D",
+				color: "#FAFFFF"
 			}}
 		>
-			<Typography variant="h4">Policy ID: {props.policyId}</Typography>
+			<Typography variant="h4" sx={{ textAlign: "center" }}>Policy ID: {props.policyId}</Typography>
 			<Box
 				sx={{
 					display: "grid",
@@ -30,10 +30,7 @@ export default function PolicyNFTCard(props: PolicyNFTCardInterface) {
 					my: "2rem",
 				}}
 			>
-				<SafetyCheck
-					sx={{ marginRight: "1.5rem", color: "black", fontSize: 40 }}
-				/>
-				<Box sx={{ position: "relative", width: "10rem", height: "10rem" }}>
+				<Box sx={{ position: "relative", width: "18rem", height: "10rem", alignItems: "center", ml: "20px", border: "2px solid #ff7f50" }}>
 					<Image src={props.imagePath} fill alt="Image of NFT insured" />
 				</Box>
 			</Box>
@@ -44,7 +41,7 @@ export default function PolicyNFTCard(props: PolicyNFTCardInterface) {
 					: address}
 			</Typography>
 			<Typography variant="h6" my="1rem">
-				Expires on- {expiryDate}
+				Expiry Date: {expiryDate}
 			</Typography>
 			<PolicyClaimButton
 				policyId={props.policyId}

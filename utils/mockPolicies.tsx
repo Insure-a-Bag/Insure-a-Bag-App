@@ -51,7 +51,7 @@ export const policies = [
 		policyId: "1123",
 		imagePath: "https://images.nightcafe.studio/jobs/lv52tXdcTWVBllHQlabO/lv52tXdcTWVBllHQlabO--1--gqudu.jpg?tr=w-1600,c-at_max",
 		expiryDate: "09-JULY-2024",
-		address: "https://cryptotrunks.co/poap/03-fall.gif",
+		address: "0xB721347D2938a5594a12DF5Cc36D598b839Cb98f",
         premiumAmount: 1,
         policyAddress:"0x0000000000000000000000000000000000000000"
 	},
@@ -59,7 +59,7 @@ export const policies = [
 		policyId: "4231",
 		imagePath: "https://images.nightcafe.studio/jobs/jE99lRmHMbIXRX85aqDL/jE99lRmHMbIXRX85aqDL--1--muzp2.jpg?tr=w-1600,c-at_max",
 		expiryDate: "02-AUG-2025",
-		address: "https://images.nightcafe.studio/jobs/bHKQ9VYdGfZAqda1YJ2r/bHKQ9VYdGfZAqda1YJ2r--1--v6q2q.jpg?tr=w-1600,c-at_max",
+		address: "0xB721347D2938a5594a12DF5Cc36D598b839Cb98f",
         premiumAmount: 1,
         policyAddress:"0x0000000000000000000000000000000000000000"
 	},
@@ -67,7 +67,7 @@ export const policies = [
 		policyId: "5674",
 		imagePath: "https://images.nightcafe.studio/jobs/HKvG2XpJXqFBPMKrXqkq/HKvG2XpJXqFBPMKrXqkq--1--73isp.jpg?tr=w-1600,c-at_max",
 		expiryDate: "01-DEC-2025",
-		address: "https://images.nightcafe.studio/jobs/WWV19f26fs7n32a6j1dz/WWV19f26fs7n32a6j1dz--1--3tdqb.jpg?tr=w-1600,c-at_max",
+		address: "0xB721347D2938a5594a12DF5Cc36D598b839Cb98f",
         premiumAmount: 1,
         policyAddress:"0x0000000000000000000000000000000000000000"
 	},

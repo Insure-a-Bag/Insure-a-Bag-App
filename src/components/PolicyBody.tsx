@@ -4,11 +4,8 @@ import { policies } from "../../utils/mockPolicies"
 import PushSupportChat from "./PushSupportChat"
 export default function PolicyBody() {
 	return (
-		<Box component="h1" sx={{ backgroundColor: "white", color: "black" }}>
+		<Box component="h1" sx={{ backgroundColor: "white", color: "black", pr: "175px" }}>
 			<Container sx={{ py: "5rem" }}>
-				<Typography align="left" variant="h2" sx={{ mb: "3rem" }}>
-					Your Policy Dashboard
-				</Typography>
 				<Box
 					component="div"
 					sx={{
