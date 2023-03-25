@@ -1,8 +1,13 @@
 import { Box, Button, Container, Modal, Typography } from "@mui/material"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { theme } from "./theme"
 import { PolicyNFTCardInterface } from "../../utils/interfaces"
 import Image from "next/image"
+import useMintPolicy from "./useMintPolicy"
+import usePayPremium from "./usePayPremium"
+import useMintPolicyApe from "./useMintPolicyApe"
+import useRenew from "./useRenewPolicy"
+import useRenewPolicyApe from "./useRenewPolicyApe"
 
 const style = {
 	position: "absolute" as "absolute",
@@ -20,6 +25,12 @@ export default function PolicyClaimButton(props: PolicyNFTCardInterface) {
 	const [open, setOpen] = useState<boolean>(false)
 	const handleOpen = () => setOpen(true)
 	const handleClose = () => setOpen(false)
+	// Starts here
+	// const { writeContract } = useMintPolicy()
+	// const { writeContract} = usePayPremium()
+	// const {writeContract} = useRenew()
+	// const {writeContract} = useMintPolicyApe()
+	const {writeContract} = useRenewPolicyApe()
 	return (
 		<>
 			<Button
@@ -30,7 +41,7 @@ export default function PolicyClaimButton(props: PolicyNFTCardInterface) {
 					color: "black",
 					borderRadius: 2,
 				}}
-                onClick={handleOpen}
+				onClick={handleOpen}
 			>
 				Apply for Claim
 			</Button>
@@ -67,6 +78,7 @@ export default function PolicyClaimButton(props: PolicyNFTCardInterface) {
 								borderRadius: 2,
 								mt: "2rem",
 							}}
+							onClick={writeContract}
 						>
 							Claim
 						</Button>
