@@ -12,7 +12,7 @@ export default function LandingMain() {
           INSURE-A-BAG
         </Typography>
         <Typography color="black" align="center" variant="h3" mt="3rem">
-          Secure Your NFTs
+          Peace of mind for your NFT portfolio
         </Typography>
         <Container sx={{ textAlign: "center", mt: "3rem" }}>
           <Button
