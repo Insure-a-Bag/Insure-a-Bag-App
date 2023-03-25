@@ -1,0 +1,7 @@
+.border-image {
+    border-image-source: url(path/to/border.png);
+    border-image-slice: 20;
+    border-image-width: 20;
+    border-image-outset: 1;
+    border-image-repeat: round;
+  }
