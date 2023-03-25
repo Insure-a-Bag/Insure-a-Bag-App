@@ -3,6 +3,7 @@ import { useState } from "react"
 import { theme } from "./theme"
 import { PolicyNFTCardInterface } from "../../utils/interfaces"
 import Image from "next/image"
+import getMerkle from "../../utils/getMerkle"
 
 const style = {
 	position: "absolute" as "absolute",
@@ -84,6 +85,7 @@ export default function PolicyDetailsButton(props: PolicyNFTCardInterface) {
 								borderRadius: 2,
 								mt: "2rem",
 							}}
+							onClick={getMerkle}
 						>
 							Pay Premium
 						</Button>
