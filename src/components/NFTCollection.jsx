@@ -112,12 +112,12 @@ const alchemy = new Alchemy(settings)
 
 export default function NFTCollection() {
 	const { address, isConnected } = useAccount()
-	const [nfts, setNfts] = useState<any[]>([])
+	const [nfts, setNfts] = useState([])
 	// const memoizedNfts = React.useMemo(() => nfts, [nfts]);
 	const fetchNfts = async () => {
 		if (isConnected) {
 			console.log("Inside func")
-			let filterNFTs: any[] = []
+			let filterNFTs = []
 			let usersNfts = await alchemy.nft.getNftsForOwner(address)
 			console.log(usersNfts.ownedNfts)
 
