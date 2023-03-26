@@ -57,7 +57,7 @@ export default function About() {
         <TitleTypography variant="h4" align="center">
           The Team
         </TitleTypography>
-        <Box sx={{ display: 'flex', ml: "260px" }}>
+        <Box sx={{ display: 'flex', ml: "200px" }}>
           <Grid container spacing={2}>
             {team.map((member: any, index: any) => (
               <Grid item xs={12} sm={2} key={index}>
@@ -77,7 +77,7 @@ export default function About() {
         </Box>
         <Box sx={{pt: "50px", textAlign: 'center'}}>
           <Typography variant="body1">
-            Our development team comprises highly skilled and experienced professionals who are passionate about using technology to solve real-world problems. With years of experience in both software development and product management, our team brings a wealth of knowledge and expertise to the Web3 space.
+            Our development team comprises highly skilled and experienced professionals who are passionate about using technology to solve real-world problems. With years of experience in software development and product management, our team brings a wealth of knowledge and expertise to the Web3 space.
             We are committed to staying at the forefront of emerging technologies and are constantly seeking new ways to push the boundaries of what is possible.
             One of the key challenges we have identified in the Web3 space is the issue of NFT theft. As the popularity of NFTs continues to grow, so too does the risk of theft and fraud. We believe that this is a critical problem that needs to be addressed, and we are dedicated to creating solutions that can help mitigate this risk.
             At the core of our approach is a deep understanding of the needs and challenges of our customers. We work closely with nft collectors to gain insights into their specific pain points and requirements, and we use this knowledge to develop tailored solutions that meet their unique needs.
