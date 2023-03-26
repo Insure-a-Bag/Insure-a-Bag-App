@@ -20,16 +20,16 @@ export default function useRenew(props: RenewPolicyInterface) {
 	// })
 	// console.log(data.toString())
 	const {data:signer} = useSigner()
-	console.log("PolicyId")
-	console.log(props.policyId.toString())
-	console.log("NFT Address")
-	console.log(props.nftAddress.toLowerCase());
+	// console.log("PolicyId")
+	// console.log(props.policyId.toString())
+	// console.log("NFT Address")
+	// console.log(props.nftAddress.toLowerCase());
 	
-	console.log("TokenId")
-	console.log(props.nftTokenId.toString())
+	// console.log("TokenId")
+	// console.log(props.nftTokenId.toString())
 	
-	console.log("Days")
-	console.log(props.days.toString())
+	// console.log("Days")
+	// console.log(props.days.toString())
 	
 	
 	

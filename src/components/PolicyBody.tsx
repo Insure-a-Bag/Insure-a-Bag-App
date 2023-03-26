@@ -7,7 +7,7 @@ import { createClient } from "urql"
 import { useEffect, useState } from "react"
 import { propsToClassKey } from "@mui/styles"
 export default function PolicyBody() {
-	const [policies,setPolicies] = useState<any>([])
+	const [policies,setPolicies] = useState<any[]>([])
 	const { address, isConnected } = useAccount()
 	const apiUrl = "https://api.studio.thegraph.com/query/44402/insureabag/v0.0.9"
 	const query = `
