@@ -21,7 +21,6 @@ export default function Navbar() {
 				position="static"
 				sx={{
 					backgroundColor: theme.palette.primary.main,
-					// height:"5rem"
 					p: "1rem"
 				}}
 			>
@@ -31,7 +30,7 @@ export default function Navbar() {
 							INSURE-A-BAG
 						</Typography>
 					</Box>
-					<Box sx={{ display: "flex" }}>
+					<Box sx={{ display: "flex", flex: 1, justifyContent: "center", ml: "230px" }}>
 						<Typography variant="h6" color="#FAFFFF" sx={{ marginX: "2rem" }}>
 							<Link href="/">Home</Link>
 						</Typography>
