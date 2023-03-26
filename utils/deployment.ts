@@ -1,21 +1,17 @@
 export const deployments = {
 	goerli: [
 		{
-			implementation: "0x4d52f1a84ce418a169dff1f9b89e065fcf5ebbd9",
-			proxy: "0x39fe8fc14729fe40bdaffaa9dc3eca2537c782c1",
+			implementation: "0xf3899e0ea5a001b0d78da00077e6dd96680f76d6",
+			proxy: "0x85faf3b4b37ba48cd50eb03e38b6ebbd4384c3c7", //-done
 		},
         {
-            implementation:"0x5721ae95eec903d7b2931883c00bfbb9803a51e9",
-            proxy:"0x1a59994b1565ee60f64bb0045cec501a8611cd2c"
+            implementation:"0x5a1D1cBC5741241d3A27Fb56B6119223c39742AD",
+            proxy:"0xBF3295Bd6603779043f78B287a6A97BC6139f0F8" //-done
         },
 		{
-			implementation:"0x4EC6598c657Ede06891Bc2573BD0d7D9c4282a29",
-			proxy:"0x685B3958B9d6fdF1Bc6C5C94a4aA90BBA996fBb7"
+			implementation:"0x9ff732768847D27A4cf32eCbcCbAd5eEb0E222f5",
+			proxy:"0x8DdC4D5F7f8e886960DC153d6297A6dafC534181" //-done
 		},
-		{
-			implementation:"0xd39d2200e222B390730e02ed328a15833cBF8b03",
-			proxy:"0x9c9E22A22613bDBCCde4A07C4c2459c6bBa66EEd"
-		}
 	],
 	root:"0xfda32faa1ce4a31d9784847ab749a001e50cea6e54905c2eaf97b7b5024f0ea0"
 }

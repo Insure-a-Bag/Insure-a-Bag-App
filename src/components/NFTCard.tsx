@@ -16,6 +16,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faEthereum } from "@fortawesome/free-brands-svg-icons"
 import useMintPolicy from "./useMintPolicy"
 import { useAccount } from "wagmi"
+import getMerkle from "../../utils/getMerkle"
+import keccak256 from "keccak256"
+import useMintPolicyApe from "./useMintPolicyApe"
 
 export default function NFTCard(props: any) {
 	const [open, setOpen] = React.useState(false)
@@ -28,8 +31,8 @@ export default function NFTCard(props: any) {
 		setOpen(true)
 	}
 	async function getUrl() {
-    console.log("Trying");
-    
+		console.log("Trying")
+
 		try {
 			const nfts = await fetch(props.image, {
 				method: "GET",
@@ -38,8 +41,11 @@ export default function NFTCard(props: any) {
 			if (nfts) {
 				// setNFTs(nfts.ownedNfts);
 				console.log(nfts.image)
-        const link = nfts.image.replace("ipfs://","https://alchemy.mypinata.cloud/ipfs/")
-        setImageUri(link)
+				const link = nfts.image.replace(
+					"ipfs://",
+					"https://alchemy.mypinata.cloud/ipfs/",
+				)
+				setImageUri(link)
 			}
 		} catch (error) {
 			console.log(error)
@@ -53,13 +59,24 @@ export default function NFTCard(props: any) {
 		}
 		setOpen(false)
 	}
+	const { tree, root } = getMerkle()
+	// console.log(props.nftAddress);
+
+	const _proof = tree.getHexProof(keccak256(props.nftAddress))
+	console.log("Proof")
+
+	// console.log(_proof);
+
 	const { writeContract } = useMintPolicy({
-		proof: [
-			"0x27b5da64d6aa1a1386a4c2bc890823fa4da72a7c4f8dde38bb5f7e0c67362ea2",
-			"0x4e7da0d2b8eef6f7a02911a85dca553d7b5d8f9ec7f6595df9ef7e1d368a8885",
-		],
-		nftAddress: "0x39fe8fc14729fe40bdaffaa9dc3eca2537c782c1",
-		nftTokenId: 6,
+		proof: _proof,
+		nftAddress: props.nftAddress,
+		nftTokenId: parseInt(props.tokenId),
+		days: months * 30,
+	})
+	const {writeContract:writeContract2} = useMintPolicyApe({
+		proof: _proof,
+		nftAddress: props.nftAddress,
+		nftTokenId: parseInt(props.tokenId),
 		days: months * 30,
 	})
 	const handleFinish = async () => {
@@ -67,6 +84,13 @@ export default function NFTCard(props: any) {
 		// console.log(months);
 
 		writeContract()
+		setOpen(false)
+	}
+	const handleFinish2 = async () => {
+		// Mint the NFT insurance contract
+		// console.log(months);
+
+		writeContract2()
 		setOpen(false)
 	}
 
@@ -254,7 +278,10 @@ export default function NFTCard(props: any) {
 							{step === 1 ? (
 								<Button onClick={handleContinue}>Continue</Button>
 							) : (
-								<Button onClick={handleFinish}>Finish</Button>
+								<>
+									<Button onClick={handleFinish}>Finish</Button>
+									<Button onClick={handleFinish2}>Finish with APE</Button>
+								</>
 							)}
 						</DialogActions>
 					</Dialog>

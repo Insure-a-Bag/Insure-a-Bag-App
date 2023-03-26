@@ -9,8 +9,9 @@ import {
 } from "wagmi"
 import { parseEther } from "@ethersproject/units"
 import { BigNumber } from "alchemy-sdk"
+import { RenewPolicyInterface } from "../../utils/interfaces"
 
-export default function useRenewPolicyApe() {
+export default function useRenewPolicyApe(props: RenewPolicyInterface) {
     
 	// const { data:readData } = useContractRead({
 	// 	address: "0xF102146713Ea1244eA8D364Ffe8085DD4068FC2c",
@@ -39,11 +40,11 @@ export default function useRenewPolicyApe() {
 		abi: abi,
 		functionName: "renewPolicyApe",
 		args: [
-            BigNumber.from("3"), // This needs to be changed to the appropirate policyID
-			"0x39fe8fc14729fe40bdaffaa9dc3eca2537c782c1", // This needs to be changed to the appropriate NFT address
-			BigNumber.from("5"), // This needs to be changed to the appropriate tokenId of the NFT
-			// ["0x27b5da64d6aa1a1386a4c2bc890823fa4da72a7c4f8dde38bb5f7e0c67362ea2","0x4e7da0d2b8eef6f7a02911a85dca553d7b5d8f9ec7f6595df9ef7e1d368a8885"],
-			BigNumber.from("30"), // // This needs to be changed to the appropriate days from input
+			BigNumber.from(props.policyId.toString()), //policyId
+            // 1,
+			props.nftAddress.toLowerCase(), //NFt address
+			BigNumber.from(props.nftTokenId.toString()), //Token Id of NFT
+			BigNumber.from(props.days.toString()), // Days to be renewed
 		],
 		// enabled:false,
 		chainId: 5,

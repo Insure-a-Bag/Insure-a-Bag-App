@@ -1,5 +1,6 @@
 import { makeRoot } from "./merkleTree"
 import { deployments } from "./deployment"
+import { MerkleTreeReturn } from "./interfaces"
 
 export default function getMerkle() {
 	const nftAddresslist: string[] = []
@@ -8,5 +9,6 @@ export default function getMerkle() {
 	})
 	console.log(nftAddresslist)
 
-	makeRoot(nftAddresslist)
+	const value:MerkleTreeReturn = makeRoot(nftAddresslist)
+	return value
 }

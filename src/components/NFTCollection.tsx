@@ -9,7 +9,7 @@ import { useAccount } from "wagmi"
 // / Setup
 
 const settings = {
-	apiKey: process.env.ALCHEMY_API_KEY,
+	apiKey: "GvARc0k8HK418WEMvilNwRaerlQfbGbO",
 	network: Network.ETH_GOERLI,
 }
 
@@ -117,37 +117,52 @@ export default function NFTCollection() {
 	const fetchNfts = async () => {
 		if (isConnected) {
 			console.log("Inside func")
-      let filterNFTs: any[] = []
+			let filterNFTs: any[] = []
 			let usersNfts = await alchemy.nft.getNftsForOwner(address)
 			console.log(usersNfts.ownedNfts)
 
 			//     let ownedNfts = usersNfts.ownedNfts
 			//     let finalNfts: OwnedNft[] = []
-      for (let i = 0; i <usersNfts.ownedNfts.length; i++) {
-        const element = usersNfts.ownedNfts[i];
-        if (element.contract.address === "0x39fe8fc14729fe40bdaffaa9dc3eca2537c782c1") {
-          filterNFTs.push(element)
-        }
+			for (let i = 0; i < usersNfts.ownedNfts.length; i++) {
+				const element = usersNfts.ownedNfts[i]
+				if (
+					element.contract.address ===
+					"0x85faf3b4b37ba48cd50eb03e38b6ebbd4384c3c7"
+				) {
+					filterNFTs.push(element)
+				}
 
-        if (element.contract.address === "0x1a59994b1565ee60f64bb0045cec501a8611cd2c") {
-          filterNFTs.push(element)
-        }
-        if (element.contract.address === "0x685B3958B9d6fdF1Bc6C5C94a4aA90BBA996fBb7") {
-          filterNFTs.push(element)
-        }
-        if (element.contract.address === "0x9c9E22A22613bDBCCde4A07C4c2459c6bBa66EEd") {
-          filterNFTs.push(element)
-        }
-      }
-      console.log(filterNFTs);
-      setNfts(filterNFTs)
+				if (
+					element.contract.address ===
+					"0xbf3295bd6603779043f78b287a6a97bc6139f0f8"
+				) {
+					filterNFTs.push(element)
+				}
+				if (
+					element.contract.address ===
+					"0x8DdC4D5F7f8e886960DC153d6297A6dafC534181".toLowerCase()
+				) {
+					filterNFTs.push(element)
+				}
+				// if (
+				// 	element.contract.address ===
+				// 	"0x9c9E22A22613bDBCCde4A07C4c2459c6bBa66EEd"
+				// ) {
+				// 	filterNFTs.push(element)
+				// }
+			}
+			console.log(filterNFTs)
+			setNfts(filterNFTs)
 		}
 	}
 	useEffect(() => {
-		console.log("Checking")
-		fetchNfts()
-	}, [])
-  
+		if (isConnected) {
+			console.log("Checking")
+
+			fetchNfts()
+		}
+	}, [address])
+
 	return (
 		// <Grid
 		// 	container
@@ -161,25 +176,33 @@ export default function NFTCollection() {
 		// 		</Grid>
 		// 	))}
 		// </Grid>
-    
-      <Box component="h1" sx={{ backgroundColor: "white", color: "black", pr: "175px" }}>
-          <Container sx={{ py: "5rem" }}>
-              <Box
-                  component="div"
-                  sx={{
-                      display: "grid",
-                      gridTemplateColumns: "repeat(3,1fr)",
-                      gap: 10,
-                      paddingRight:"175px",
 
-                  }}
-              >
-        {nfts.map((card, i) => (
-            <NFTCard key={i} title={card.title} price={card.price} image={card.tokenUri.gateway} />
-        ))}
-              </Box>
-          </Container>
-      </Box>
-  
+		<Box
+			component="h1"
+			sx={{ backgroundColor: "white", color: "black", pr: "175px" }}
+		>
+			<Container sx={{ py: "5rem" }}>
+				<Box
+					component="div"
+					sx={{
+						display: "grid",
+						gridTemplateColumns: "repeat(3,1fr)",
+						gap: 10,
+						paddingRight: "175px",
+					}}
+				>
+					{nfts.map((card, i) => (
+						<NFTCard
+							key={i}
+							title={card.title}
+							price={card.price}
+							image={card.tokenUri.gateway}
+              nftAddress={card.contract.address}
+              tokenId={card.tokenId}
+						/>
+					))}
+				</Box>
+			</Container>
+		</Box>
 	)
 }
