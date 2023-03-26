@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['images.nightcafe.studio', 'i.seadn.io', 'cryptotrunks.co'],
+    domains: ['images.nightcafe.studio', 'i.seadn.io', 'cryptotrunks.co',"alchemy.mypinata.cloud"],
   },
 }
 

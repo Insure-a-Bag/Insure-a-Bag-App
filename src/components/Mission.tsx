@@ -10,10 +10,10 @@ const Mission = () => {
     <Box sx={{ flexGrow: 1, mt: "100px", mb: "100px" }}>
       <Grid container spacing={2}>
         <Grid item xs={6} md={8} text-items='left'>
-            <Typography color="black" variant="h3" className='grid-elements' sx={{ ml: "200px" }}>
+            <Typography color="white" variant="h3" className='grid-elements' sx={{ ml: "200px" }}>
                 <strong>Mission Statement</strong>
             </Typography>
-            <Typography color="black" variant="body1" sx={{ ml: "200px"}}>
+            <Typography color="white" variant="body1" sx={{ ml: "200px"}}>
                 Our mission at Insure-a-bag is to empower the digital asset community by providing a decentralized, 
                 secure, and user-friendly NFT insurance solution that fosters trust, protection, and growth in the NFT ecosystem. This will 
                 enable creators, collectors, and investors to confidently engage with and preserve the value of their digital assets.
@@ -37,10 +37,10 @@ const Mission = () => {
             />
         </Grid>
         <Grid item xs={6} md={8}>
-            <Typography color="black" variant="h3" className='grid-elements' sx={{ float: "right", mr: "200px" }}>
+            <Typography color="white" variant="h3" className='grid-elements' sx={{ float: "right", mr: "200px" }}>
                 <strong>The Vision</strong>
             </Typography>
-            <Typography color="black" variant="body1" sx={{ mr: "200px", float: "right"}}>
+            <Typography color="white" variant="body1" sx={{ mr: "200px", float: "right"}}>
                 The vision for Insure-a-bag is to become the leading NFT insurance protocol, shaping the future of digital asset protection and security. 
                 We aim to create a thriving, interconnected ecosystem where creators, collectors, and investors can engage with NFTs confidently, knowing their 
                 assets are safeguarded by our innovative, decentralized, and comprehensive insurance solutions. Through continuous innovation, seamless integration, 
@@ -49,10 +49,10 @@ const Mission = () => {
             </Typography>
         </Grid>
         <Grid item xs={6} md={8} text-items='left'>
-            <Typography color="black" variant="h3" className='grid-elements' sx={{ ml: "200px"}}>
+            <Typography color="white" variant="h3" className='grid-elements' sx={{ ml: "200px"}}>
                 <strong>The Future</strong>
             </Typography>
-            <Typography color="black" variant="body1" sx={{ ml: "200px"}}>
+            <Typography color="white" variant="body1" sx={{ ml: "200px"}}>
                 In the future, Insure-a-bag envisions transitioning to a Decentralized Autonomous Organization (DAO) to empower our community 
                 and enhance platform resilience. Adopting a DAO model will enable decentralized decision-making, where users and stakeholders 
                 contribute to protocol upgrades and improvements, ensuring continuous innovation in the NFT insurance space. 

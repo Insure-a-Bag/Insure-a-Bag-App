@@ -8,6 +8,7 @@ import {
 import { ConnectButton } from '@rainbow-me/rainbowkit';
 import Link from "next/link"
 import { theme } from "./theme"
+import Image from "next/image";
 
 const StyledToolbar = styled(Toolbar)({
 	display: "flex",
@@ -21,14 +22,15 @@ export default function Navbar() {
 				position="static"
 				sx={{
 					backgroundColor: theme.palette.primary.main,
-					p: "1rem"
+					p: "0.1rem"
 				}}
 			>
 				<StyledToolbar>
 					<Box display="flex">
-						<Typography variant="h6" color="#FAFFFF">
+						{/* <Typography variant="h6" color="#FAFFFF">
 							INSURE-A-BAG
-						</Typography>
+						</Typography> */}
+						<Image src="NFT_Insurance_2.svg" width="200" height="150" alt="Logo"/>
 					</Box>
 					<Box sx={{ display: "flex", flex: 1, justifyContent: "center", ml: "230px" }}>
 						<Typography variant="h6" color="#FAFFFF" sx={{ marginX: "2rem" }}>

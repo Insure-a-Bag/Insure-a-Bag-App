@@ -7,6 +7,7 @@ import getMerkle from "../../utils/getMerkle"
 import usePayPremium from "./usePayPremium"
 import useRenew from "./useRenewPolicy"
 import { useAccount } from "wagmi"
+import useRenewPolicyApe from "./useRenewPolicyApe"
 
 const style = {
 	position: "absolute" as "absolute",
@@ -25,6 +26,12 @@ export default function PolicyDetailsButton(props: PolicyNFTCardInterface) {
 	const handleOpen = () => setOpen(true)
 	const handleClose = () => setOpen(false)
 	const { isConnected } = useAccount()
+	const {writeContract:writeContract2} = useRenewPolicyApe({
+		nftAddress: props.address,
+		nftTokenId: props.tokenId,
+		policyId: props.policyId,
+		days: 30,
+	})
 	const { writeContract } = useRenew({
 		nftAddress: props.address,
 		nftTokenId: props.tokenId,
@@ -122,11 +129,25 @@ export default function PolicyDetailsButton(props: PolicyNFTCardInterface) {
 									borderRadius: 2,
 									mt: "2rem",
 								}}
-								
+								// onClick={}
 							>
 								Pay Premium
 							</Button>
 						)}
+						{isConnected ? (
+							<Button
+								sx={{
+									backgroundColor: "#ff7f50",
+									p: "0.5rem",
+									color: "#FAFFFF",
+									borderRadius: 2,
+									mt: "2rem",
+								}}
+								onClick={writeContract2}
+							>
+								Pay Premium with APE
+							</Button>
+						) : null}
 					</Box>
 				</Box>
 			</Modal>

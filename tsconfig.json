@@ -23,6 +23,6 @@
 		"**/*.ts",
 		"**/*.tsx",
 		"src/components/theme.tsx"
-	],
-	"exclude": ["node_modules"]
+, "src/components/NFTCollection.jsx"	],
+	"exclude": ["node_modules","src/components/NFTCollection.jsx"]
 }

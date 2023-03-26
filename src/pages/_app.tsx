@@ -1,7 +1,7 @@
 import "@/styles/globals.css"
 import type { AppProps } from "next/app"
 import "@rainbow-me/rainbowkit/styles.css"
-import merge from 'lodash.merge';
+import merge from "lodash.merge"
 import {
 	getDefaultWallets,
 	RainbowKitProvider,
@@ -20,12 +20,12 @@ import { alchemyProvider } from "wagmi/providers/alchemy"
 import { publicProvider } from "wagmi/providers/public"
 import { ThemeProvider } from "@mui/material"
 import { theme } from "@/components/theme"
-
+import { useEffect, useState } from "react"
 
 const { chains, provider } = configureChains(
 	[polygonMumbai, optimismGoerli, goerli],
 	[
-		// alchemyProvider({ apiKey: process.env.ALCHEMY_ID }),
+		// alchemyProvider({ apiKey: process.env.ALCHEMY_API_KEY }),
 		publicProvider(),
 	],
 )
@@ -41,26 +41,30 @@ const wagmiClient = createClient({
 
 const myTheme = merge(lightTheme(), {
 	colors: {
-		accentColor:theme.palette.secondary.main,
-		accentColorForeground:"black",
+		accentColor: theme.palette.secondary.main,
+		accentColorForeground: "black",
 		// modalBackground: theme.palette.primary.main
 		menuItemBackground: theme.palette.primary.main,
 		connectButtonBackground: theme.palette.secondary.main,
-		
 	},
-  } as Theme);
+} as Theme)
 
 export default function App({ Component, pageProps }: AppProps) {
+	const [ready, setReady] = useState(false)
+	useEffect(() => {
+		setReady(true)
+	}, [])
 	return (
-		<ThemeProvider theme={theme}>
-			<WagmiConfig client={wagmiClient}>
-				<RainbowKitProvider
-					chains={chains}
-					theme={myTheme}
-				>
-					<Component {...pageProps} />
-				</RainbowKitProvider>
-			</WagmiConfig>
-		</ThemeProvider>
+		<>
+			{ready ? (
+				<ThemeProvider theme={theme}>
+					<WagmiConfig client={wagmiClient}>
+						<RainbowKitProvider chains={chains} theme={myTheme}>
+							<Component {...pageProps} />
+						</RainbowKitProvider>
+					</WagmiConfig>
+				</ThemeProvider>
+			) : null}
+		</>
 	)
 }
