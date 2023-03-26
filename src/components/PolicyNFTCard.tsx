@@ -4,9 +4,10 @@ import Image from "next/image"
 import { PolicyNFTCardInterface } from "../../utils/interfaces"
 import PolicyDetailsButton from "./PolicyDetailsButton"
 import PolicyClaimButton from "./PolicyClaimButton"
+import { useAccount } from "wagmi"
 
 export default function PolicyNFTCard(props: PolicyNFTCardInterface) {
-	const address: string = props.address
+	const {address}= useAccount()
 	const expiryDate: string = props.expiryDate
 	return (
 		<Box
@@ -50,6 +51,7 @@ export default function PolicyNFTCard(props: PolicyNFTCardInterface) {
 				address={props.address}
 				premiumAmount={props.premiumAmount}
 				policyAddress={props.policyAddress}
+				tokenId={props.tokenId}
 			/>
 			<PolicyDetailsButton
 				policyId={props.policyId}
@@ -58,6 +60,7 @@ export default function PolicyNFTCard(props: PolicyNFTCardInterface) {
 				address={props.address}
 				premiumAmount={props.premiumAmount}
 				policyAddress={props.policyAddress}
+				tokenId={props.tokenId}
 			/>
 		</Box>
 	)

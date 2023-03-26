@@ -4,6 +4,9 @@ import { theme } from "./theme"
 import { PolicyNFTCardInterface } from "../../utils/interfaces"
 import Image from "next/image"
 import getMerkle from "../../utils/getMerkle"
+import usePayPremium from "./usePayPremium"
+import useRenew from "./useRenewPolicy"
+import { useAccount } from "wagmi"
 
 const style = {
 	position: "absolute" as "absolute",
@@ -21,6 +24,13 @@ export default function PolicyDetailsButton(props: PolicyNFTCardInterface) {
 	const [open, setOpen] = useState<boolean>(false)
 	const handleOpen = () => setOpen(true)
 	const handleClose = () => setOpen(false)
+	const { isConnected } = useAccount()
+	const { writeContract } = useRenew({
+		nftAddress: props.address,
+		nftTokenId: props.tokenId,
+		policyId: props.policyId,
+		days: 30,
+	})
 	return (
 		<>
 			<Button
@@ -30,8 +40,8 @@ export default function PolicyDetailsButton(props: PolicyNFTCardInterface) {
 					color: "#FAFFFF",
 					borderRadius: 2,
 					"&:hover": {
-						bgcolor: "#ff7f50"
-					}
+						bgcolor: "#ff7f50",
+					},
 				}}
 				onClick={handleOpen}
 			>
@@ -44,7 +54,12 @@ export default function PolicyDetailsButton(props: PolicyNFTCardInterface) {
 				aria-describedby="modal-modal-description"
 			>
 				<Box sx={style}>
-					<Typography variant="h4" component="h2" color="#FAFFFF" sx={{ textAlign: "center" }}>
+					<Typography
+						variant="h4"
+						component="h2"
+						color="#FAFFFF"
+						sx={{ textAlign: "center" }}
+					>
 						Policy ID: {props.policyId}
 					</Typography>
 					<Container
@@ -55,7 +70,12 @@ export default function PolicyDetailsButton(props: PolicyNFTCardInterface) {
 							my: "2rem",
 						}}
 					>
-						<Image src={props.imagePath} style={{borderRadius:10}} fill alt="Image of NFT insured" />
+						<Image
+							src={props.imagePath}
+							style={{ borderRadius: 10 }}
+							fill
+							alt="Image of NFT insured"
+						/>
 					</Container>
 					<Box>
 						<Typography variant="h5" sx={{ mt: 2 }} color="#FAFFFF">
@@ -80,18 +100,33 @@ export default function PolicyDetailsButton(props: PolicyNFTCardInterface) {
 						<Typography variant="h5" sx={{ mt: 2 }} color="#FAFFFF">
 							Premium Amount: {props.premiumAmount} ETH
 						</Typography>
-						<Button
-							sx={{
-								backgroundColor: "#ff7f50",
-								p: "0.5rem",
-								color: "#FAFFFF",
-								borderRadius: 2,
-								mt: "2rem",
-							}}
-							onClick={getMerkle}
-						>
-							Pay Premium
-						</Button>
+						{isConnected ? (
+							<Button
+								sx={{
+									backgroundColor: "#ff7f50",
+									p: "0.5rem",
+									color: "#FAFFFF",
+									borderRadius: 2,
+									mt: "2rem",
+								}}
+								onClick={writeContract}
+							>
+								Pay Premium
+							</Button>
+						) : (
+							<Button
+								sx={{
+									backgroundColor: "#ff7f50",
+									p: "0.5rem",
+									color: "#FAFFFF",
+									borderRadius: 2,
+									mt: "2rem",
+								}}
+								
+							>
+								Pay Premium
+							</Button>
+						)}
 					</Box>
 				</Box>
 			</Modal>

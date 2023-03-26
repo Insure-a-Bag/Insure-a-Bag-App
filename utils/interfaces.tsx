@@ -6,10 +6,24 @@ export interface MerkleTreeReturn {
 }
 
 export interface PolicyNFTCardInterface {
-    policyId: string,
+    policyId: number,
     imagePath: string,
     expiryDate: string,
     address: string,
+    tokenId: number
     premiumAmount: number,
     policyAddress: string
+}
+
+export interface MintPolicyInterface {
+    nftAddress: string,
+    nftTokenId: number,
+    proof: string[],
+    days: number
+}
+export interface RenewPolicyInterface {
+    nftAddress: string,
+    nftTokenId: number,
+    policyId: number,
+    days: number
 }
