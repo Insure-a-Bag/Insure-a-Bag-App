@@ -15,15 +15,41 @@ import Slider from "@mui/material/Slider"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faEthereum } from "@fortawesome/free-brands-svg-icons"
 import useMintPolicy from "./useMintPolicy"
+import { useAccount } from "wagmi"
+import getMerkle from "../../utils/getMerkle"
+import keccak256 from "keccak256"
+import useMintPolicyApe from "./useMintPolicyApe"
 
 export default function NFTCard(props: any) {
 	const [open, setOpen] = React.useState(false)
 	const [months, setMonths] = React.useState(1)
 	const [step, setStep] = React.useState(1)
 	const price = 0.6367 // replace with actual price of NFT
-
+	const [imageUri, setImageUri] = React.useState<string>("")
+	const { address, isConnected } = useAccount()
 	const handleClickOpen = () => {
 		setOpen(true)
+	}
+	async function getUrl() {
+		console.log("Trying")
+
+		try {
+			const nfts = await fetch(props.image, {
+				method: "GET",
+			}).then((data) => data.json())
+
+			if (nfts) {
+				// setNFTs(nfts.ownedNfts);
+				console.log(nfts.image)
+				const link = nfts.image.replace(
+					"ipfs://",
+					"https://alchemy.mypinata.cloud/ipfs/",
+				)
+				setImageUri(link)
+			}
+		} catch (error) {
+			console.log(error)
+		}
 	}
 
 	const handleClose = () => {
@@ -33,20 +59,38 @@ export default function NFTCard(props: any) {
 		}
 		setOpen(false)
 	}
+	const { tree, root } = getMerkle()
+	// console.log(props.nftAddress);
+
+	const _proof = tree.getHexProof(keccak256(props.nftAddress))
+	console.log("Proof")
+
+	// console.log(_proof);
+
 	const { writeContract } = useMintPolicy({
-		proof: [
-			"0x27b5da64d6aa1a1386a4c2bc890823fa4da72a7c4f8dde38bb5f7e0c67362ea2",
-			"0x4e7da0d2b8eef6f7a02911a85dca553d7b5d8f9ec7f6595df9ef7e1d368a8885",
-		],
-		nftAddress: "0x39fe8fc14729fe40bdaffaa9dc3eca2537c782c1",
-		nftTokenId: 6,
+		proof: _proof,
+		nftAddress: props.nftAddress,
+		nftTokenId: parseInt(props.tokenId),
+		days: months * 30,
+	})
+	const {writeContract:writeContract2} = useMintPolicyApe({
+		proof: _proof,
+		nftAddress: props.nftAddress,
+		nftTokenId: parseInt(props.tokenId),
 		days: months * 30,
 	})
 	const handleFinish = async () => {
 		// Mint the NFT insurance contract
-    console.log(months);
-    
-    writeContract()
+		// console.log(months);
+
+		writeContract()
+		setOpen(false)
+	}
+	const handleFinish2 = async () => {
+		// Mint the NFT insurance contract
+		// console.log(months);
+
+		writeContract2()
 		setOpen(false)
 	}
 
@@ -104,6 +148,11 @@ export default function NFTCard(props: any) {
     You confirm that you are entering into this insurance policy with full knowledge of the associated risks, and accept all terms pertaining to coverage, claims, 
     and policy administration as outlined in the Insure-a-bag Terms and Conditions.
   `
+	React.useEffect(() => {
+		if (isConnected) {
+			getUrl()
+		}
+	}, [address])
 
 	return (
 		<Card
@@ -141,7 +190,7 @@ export default function NFTCard(props: any) {
 					border: "1px solid #ff7f50",
 				}}
 				component="img"
-				image={props.image}
+				image={imageUri}
 			/>
 			<Box m={1} display="flex" justifyContent="space-between">
 				<CardContent>
@@ -229,7 +278,10 @@ export default function NFTCard(props: any) {
 							{step === 1 ? (
 								<Button onClick={handleContinue}>Continue</Button>
 							) : (
-								<Button onClick={handleFinish}>Finish</Button>
+								<>
+									<Button onClick={handleFinish}>Finish</Button>
+									<Button onClick={handleFinish2}>Finish with APE</Button>
+								</>
 							)}
 						</DialogActions>
 					</Dialog>

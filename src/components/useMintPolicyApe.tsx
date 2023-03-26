@@ -9,8 +9,9 @@ import {
 } from "wagmi"
 import { parseEther } from "@ethersproject/units"
 import { BigNumber } from "alchemy-sdk"
+import { MintPolicyInterface } from "../../utils/interfaces"
 
-export default function useMintPolicyApe() {
+export default function useMintPolicyApe(props:MintPolicyInterface) {
     
 	// const { data:readData } = useContractRead({
 	// 	address: "0xF102146713Ea1244eA8D364Ffe8085DD4068FC2c",
@@ -39,10 +40,10 @@ export default function useMintPolicyApe() {
 		abi: abi,
 		functionName: "mintInsurancePolicyApe",
 		args: [
-			"0x39fe8fc14729fe40bdaffaa9dc3eca2537c782c1",
-			BigNumber.from("5"),
-			["0x27b5da64d6aa1a1386a4c2bc890823fa4da72a7c4f8dde38bb5f7e0c67362ea2","0x4e7da0d2b8eef6f7a02911a85dca553d7b5d8f9ec7f6595df9ef7e1d368a8885"],
-			BigNumber.from("30"),
+			props.nftAddress,
+			BigNumber.from(props.nftTokenId.toString()),
+			props.proof,
+			BigNumber.from(props.days.toString()),
 		],
 		// enabled:false,
 		chainId: 5,

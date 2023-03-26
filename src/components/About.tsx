@@ -53,7 +53,7 @@ const team = [
 
 export default function About() {
     return (
-      <RootBox sx={{pt: "200px"}}>
+      <RootBox sx={{pt: "200px", color:"black"}}>
         <TitleTypography variant="h4" align="center">
           The Team
         </TitleTypography>

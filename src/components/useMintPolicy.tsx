@@ -20,10 +20,10 @@ export default function useMintPolicy(props:MintPolicyInterface) {
 	// })
 	// console.log(data.toString())
 	const {data:signer} = useSigner()
-	console.log("TokenId")
-	console.log(props.nftTokenId.toString());
-	console.log("Days")
-	console.log(props.days.toString());
+	// console.log("TokenId")
+	// console.log(props.nftTokenId.toString());
+	// console.log("Days")
+	// console.log(props.days.toString());
 	
 	
 	
