@@ -30,7 +30,7 @@ export default function PolicyClaimButton(props: PolicyNFTCardInterface) {
 	// const { writeContract} = usePayPremium()
 	// const {writeContract} = useRenew()
 	// const {writeContract} = useMintPolicyApe()
-	const {writeContract} = useRenewPolicyApe()
+	// const {writeContract} = useRenewPolicyApe()
 	return (
 		<>
 			<Button
@@ -84,7 +84,7 @@ export default function PolicyClaimButton(props: PolicyNFTCardInterface) {
 									bgcolor: "#ff7f50"
 								}
 							}}
-							onClick={writeContract}
+							// onClick={}
 						>
 							Claim
 						</Button>

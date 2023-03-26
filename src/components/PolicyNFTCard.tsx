@@ -50,6 +50,7 @@ export default function PolicyNFTCard(props: PolicyNFTCardInterface) {
 				address={props.address}
 				premiumAmount={props.premiumAmount}
 				policyAddress={props.policyAddress}
+				tokenId={props.tokenId}
 			/>
 			<PolicyDetailsButton
 				policyId={props.policyId}
@@ -58,6 +59,7 @@ export default function PolicyNFTCard(props: PolicyNFTCardInterface) {
 				address={props.address}
 				premiumAmount={props.premiumAmount}
 				policyAddress={props.policyAddress}
+				tokenId={props.tokenId}
 			/>
 		</Box>
 	)
