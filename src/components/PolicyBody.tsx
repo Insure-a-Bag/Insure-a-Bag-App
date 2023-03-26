@@ -45,7 +45,9 @@ export default function PolicyBody() {
 			sx={{ backgroundColor: "white", color: "black", pr: "175px" }}
 		>
 			<Container sx={{ py: "5rem" }}>
-				<Box
+				<Typography variant="h2" sx={{my:"3rem"}}> Your Policies</Typography>
+				<Typography variant="h5" sx={{my:"3rem"}}>Find your Insurance Policies here</Typography>
+				{isConnected?<Box
 					component="div"
 					sx={{
 						display: "grid",
@@ -66,6 +68,29 @@ export default function PolicyBody() {
 						/>
 					))}
 				</Box>
+				:
+				null}
+				{/* <Box
+					component="div"
+					sx={{
+						display: "grid",
+						gridTemplateColumns: "repeat(3,1fr)",
+						gap: 10,
+					}}
+				>
+					{policies.map((policy, i) => (
+						<PolicyNFTCard
+							key={i}
+							policyId={parseInt(policy.policyId)}
+							expiryDate={policy.expiryTime}
+							imagePath={mockPolicy[i].imagePath}
+							address={policy.address}
+							premiumAmount={mockPolicy[i].premiumAmount}
+							policyAddress={policy.address}
+							tokenId={parseInt(policy.tokenId)}
+						/>
+					))}
+				</Box> */}
 			</Container>
 			<PushSupportChat />
 		</Box>
