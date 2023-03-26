@@ -15,15 +15,35 @@ import Slider from "@mui/material/Slider"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faEthereum } from "@fortawesome/free-brands-svg-icons"
 import useMintPolicy from "./useMintPolicy"
+import { useAccount } from "wagmi"
 
 export default function NFTCard(props: any) {
 	const [open, setOpen] = React.useState(false)
 	const [months, setMonths] = React.useState(1)
 	const [step, setStep] = React.useState(1)
 	const price = 0.6367 // replace with actual price of NFT
-
+	const [imageUri, setImageUri] = React.useState<string>("")
+	const { address, isConnected } = useAccount()
 	const handleClickOpen = () => {
 		setOpen(true)
+	}
+	async function getUrl() {
+    console.log("Trying");
+    
+		try {
+			const nfts = await fetch(props.image, {
+				method: "GET",
+			}).then((data) => data.json())
+
+			if (nfts) {
+				// setNFTs(nfts.ownedNfts);
+				console.log(nfts.image)
+        const link = nfts.image.replace("ipfs://","https://alchemy.mypinata.cloud/ipfs/")
+        setImageUri(link)
+			}
+		} catch (error) {
+			console.log(error)
+		}
 	}
 
 	const handleClose = () => {
@@ -44,9 +64,9 @@ export default function NFTCard(props: any) {
 	})
 	const handleFinish = async () => {
 		// Mint the NFT insurance contract
-    console.log(months);
-    
-    writeContract()
+		// console.log(months);
+
+		writeContract()
 		setOpen(false)
 	}
 
@@ -104,6 +124,11 @@ export default function NFTCard(props: any) {
     You confirm that you are entering into this insurance policy with full knowledge of the associated risks, and accept all terms pertaining to coverage, claims, 
     and policy administration as outlined in the Insure-a-bag Terms and Conditions.
   `
+	React.useEffect(() => {
+		if (isConnected) {
+			getUrl()
+		}
+	}, [address])
 
 	return (
 		<Card
@@ -141,7 +166,7 @@ export default function NFTCard(props: any) {
 					border: "1px solid #ff7f50",
 				}}
 				component="img"
-				image={props.image}
+				image={imageUri}
 			/>
 			<Box m={1} display="flex" justifyContent="space-between">
 				<CardContent>
